@@ -1,0 +1,9 @@
+.idea/
+*.iml
+out/
+gen/
+target/
+build/
+# Các file rác hệ thống
+.DS_Store
+Thumbs.db
