@@ -37,7 +37,7 @@ public class Cart {
     public void printCart() {
         System.out.println("Ordered Items:");
         for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println((i + 1) + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost() + "$");
+            System.out.println(itemsOrdered[i].getId() + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost() + "$");
         }
     }
     public float totalCost() {
