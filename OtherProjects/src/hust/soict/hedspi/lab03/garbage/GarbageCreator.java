@@ -1,15 +1,14 @@
-package hust.soict.hedspi.garbage;
+package hust.soict.hedspi.lab03.garbage;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class NoGarbage {
+public class GarbageCreator {
     public static void main(String[] args) {
-        String filename = "D:\\Tai\\JAVA\\OOPLab\\AimsProject\\08DaHinh.pdf";
+        String filename = "D:\\Tai\\JAVA\\OOPLab\\OtherProjects\\src\\hust\\soict\\hedspi\\lab03\\08DaHinh.pdf";
         byte[] inputBytes = { 0 };
         long startTime, endTime;
-
         try {
             inputBytes = Files.readAllBytes(Paths.get(filename));
         } catch (IOException e) {
@@ -17,11 +16,11 @@ public class NoGarbage {
         }
 
         startTime = System.currentTimeMillis();
-        StringBuilder outputStringBuilder = new StringBuilder();
+        String outputString = "";
         for (byte b : inputBytes) {
-            outputStringBuilder.append((char)b);
+            outputString += (char)b;
         }
         endTime = System.currentTimeMillis();
-        System.out.println("Thời gian đọc bằng StringBuilder: " + (endTime - startTime) + " ms");
+        System.out.println("Thời gian đọc bằng toán tử + : " + (endTime - startTime) + "ms");
     }
 }

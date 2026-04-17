@@ -1,4 +1,4 @@
-package hust.soict.hedspi.garbage;
+package hust.soict.hedspi.lab03.garbage;
 
 import java.util.Random;
 
