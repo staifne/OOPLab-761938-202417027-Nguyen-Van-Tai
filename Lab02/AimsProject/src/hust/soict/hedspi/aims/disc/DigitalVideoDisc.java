@@ -52,4 +52,13 @@ public class DigitalVideoDisc {
     public String getDirector() { return director; }
     public int getLength() { return length; }
     public float getCost() { return cost; }
+
+    @Override
+    public String toString() {
+        return "DVD - " +this.title + " - " + this.category + " - " + this.director + " - " + this.length + ": " +
+                this.cost + " $";
+    }
+    public boolean isMatch(String title){
+        return this.title.toLowerCase().contains(title.toLowerCase());
+    }
 }
