@@ -1,5 +1,8 @@
 package hust.soict.hedspi.aims;
 
+import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 public class Aims {
     public static void main(String[] args) {
         Cart anOrder = new Cart();
@@ -9,10 +12,10 @@ public class Aims {
         anOrder.addDigitalVideoDisc(dvd2);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
         anOrder.addDigitalVideoDisc(dvd3);
-        anOrder.printCart();
+        anOrder.print();
         System.out.println("Total Cost is: " + anOrder.totalCost() + "$");
         anOrder.removeDigitalVideoDisc(dvd3);
-        anOrder.printCart();
+        anOrder.print();
         System.out.println("Total Cost is: " + anOrder.totalCost() + "$");
     }
 }

@@ -1,5 +1,7 @@
 package hust.soict.hedspi.aims.cart;
 
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
@@ -36,11 +38,14 @@ public class Cart {
         }
         System.out.println("The disc is not in the cart");
     }
-    public void printCart() {
+    public void print() {
+        System.out.println("***********************CART***********************");
         System.out.println("Ordered Items:");
         for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println(itemsOrdered[i].getId() + "\t" + itemsOrdered[i].getTitle() + "\t" + itemsOrdered[i].getCost() + "$");
+            System.out.println((i+1) + ". " + itemsOrdered[i].toString());
         }
+        System.out.println("Total cost: " + totalCost() + " $");
+        System.out.println("***************************************************");
     }
     public float totalCost() {
         float total = 0;
@@ -48,5 +53,33 @@ public class Cart {
             total += itemsOrdered[i].getCost();
         }
         return total;
+    }
+    //tim theo id
+    public void searchById(int id){
+        boolean found = false;
+        for (int i = 0; i < qtyOrdered; i++){
+            if(itemsOrdered[i].getId() == id){
+                System.out.println("Found item: " + itemsOrdered[i].toString());
+                found = true;
+                break;
+            }
+        }
+        if(!found){
+            System.out.println("No match found for ID: " + id);
+        }
+    }
+    // tim theo tieu de
+    public void searchByTitle(String title) {
+        boolean found = false;
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].isMatch(title)) {
+                System.out.println("Found item: " + itemsOrdered[i].toString());
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("No match found for title: " + title);
+        }
     }
 }
