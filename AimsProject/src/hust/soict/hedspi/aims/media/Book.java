@@ -26,4 +26,9 @@ public class Book extends Media {
             System.out.println("Author '" + authorName + "' is not in the list.");
         }
     }
+    @Override
+    public String toString() {
+        return "Book - " + this.getTitle() + " - " + this.getCategory() + " - "
+                + this.getCost() + " $";
+    }
 }
