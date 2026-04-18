@@ -1,37 +1,25 @@
 package hust.soict.hedspi.aims.store;
 
-import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.Media;
+import java.util.ArrayList;
 
 public class Store {
-    private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[50];
-    private int qtyInStore = 0;
-    // them vao kho
-    public void addDVD(DigitalVideoDisc dvd){
-        if(qtyInStore < itemsInStore.length){
-            itemsInStore[qtyInStore] = dvd;
-            qtyInStore++;
-            System.out.println("The DVD '" + dvd.getTitle() + "' has been added to the store.");
-        }else{
-            System.out.println("The store is full! Cannot add more DVDs.");
+    // Sử dụng ArrayList
+    private ArrayList<Media> itemsInStore = new ArrayList<Media>();
+    public void addMedia(Media media) {
+        if (!itemsInStore.contains(media)) {
+            itemsInStore.add(media);
+            System.out.println(media.getTitle() + " has been added to the store.");
+        } else {
+            System.out.println(media.getTitle() + " is already in the store.");
         }
     }
-    // xoa khoi kho
-    public void removeDVD(DigitalVideoDisc dvd) {
-        boolean found = false;
-        for (int i = 0; i < qtyInStore; i++) {
-            if (itemsInStore[i] == dvd) {
-                found = true;
-                for (int j = i; j < qtyInStore - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-                itemsInStore[qtyInStore - 1] = null;
-                qtyInStore--;
-                System.out.println("The DVD '" + dvd.getTitle() + "' has been removed from the store");
-                break;
-            }
-        }
-        if(!found) {
-            System.out.println("The DVD '" + dvd.getTitle() + "' is not in the store");
+    public void removeMedia(Media media) {
+        if (itemsInStore.contains(media)) {
+            itemsInStore.remove(media);
+            System.out.println(media.getTitle() + " has been removed from the store.");
+        } else {
+            System.out.println(media.getTitle() + " is not in the store.");
         }
     }
 }
