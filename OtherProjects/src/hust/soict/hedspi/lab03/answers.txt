@@ -1,0 +1,39 @@
++What are the advantages of Polymorphism?
+answer:
+Tái sử dụng mã nguồn, tính linh hoạt và mở rộng, dễ bảo trì, nhiều đối tượng khác nhau có thể được xử lý thông qua
+cùng một tên phương thức, giúp logic lập trình trở lên nhất quán.
++How is Inheritance useful to achieve Polymorphism in Java?
+-Cung cấp mối quan hệ "IS-A": Kế thừa thiết lập mối quan hệ giữa lớp Cha (Superclass) và lớp Con (Subclass).Điều này cho
+phép một biến tham chiếu kiểu Cha có thể trỏ đến đối tượng của bất kỳ lớp Con nào.
+-Ghi đè phương thức (Method Overriding): Kế thừa cho phép lớp Con định nghĩa lại (override) các phương thức của lớp Cha.
+Đa hình sử dụng các phương thức được ghi đè này để thực hiện các hành vi khác nhau dựa trên đối tượng thực tế.
+-Cho phép Upcasting (Chuyển kiểu ngược): Nhờ kế thừa, bạn có thể đối xử với các đối tượng khác nhau (Dog, Cat, Bird) như
+là cùng một kiểu chung (Animal). Điều này giúp viết code tổng quát, có thể hoạt động với mọi lớp con mà không cần biết
+cụ thể lớp đó là gì.
+-Liên kết động (Dynamic Binding): Khi bạn gọi một phương thức thông qua biến tham chiếu kiểu Cha, Java Virtual Machine
+(JVM) sẽ dựa vào đối tượng thực tế (được tạo ra nhờ kế thừa) để quyết định phương thức của lớp nào sẽ được thực thi tại
+thời điểm chạy.
++What are the differences between Polymorphism and Inheritance in Java?
+Kế thừa:
+-Cho phép một lớp (lớp con) thừa hưởng các thuộc tính và phương thức từ lớp khác (lớp cha).
+-Tái sử dụng mã nguồn.
+-Sử dụng từ khóa extends (với lớp) hoặc implements (với interface).
+-Xảy ra ở cấp độ lớp.
+Đa hình:
+-Cho phép một hành động hoặc phương thức thực hiện theo nhiều cách khác nhau tùy vào đối tượng gọi nó.
+-Tính linh hoạt và khả năng mở rộng hệ thống.
+-Cho phép xử lý các đối tượng khác nhau thông qua cùng một giao diện chung.
+-Thực hiện thông qua Overloading hoặc Overriding.
+-Xảy ra ở cấp độ phương thức/đối tượng.
++What class should implement the Comparable interface?
+Lớp cha Media nên là lớp implement interface Comparable<Media>.
++In those classes, how should you implement the compareTo()method to reflect the ordering that we want?
+Sẽ ghi đè hàm compareTo(Media other) bên trong lớp Media.
++Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this Comparable
+interface approach?
+Không thể vì Interface Comparable sinh ra để định nghĩa thứ tự tự nhiên mặc định của một lớp. Mỗi class chỉ có thể định
+nghĩa duy nhất một hàm compareTo(), do đó nó chỉ có thể chứa đúng 1 luật sắp xếp.
++Suppose the DVDs have a different ordering rule from the other media types, that is by title, then decreasing length,
+then cost. How would you modify your code to allow this?
+Nhờ vào Tính Đa hình, chúng ta có thể ghi đè lại hàm compareTo() một lần nữa bên trong lớp con DigitalVideoDisc để nó tự
+định nghĩa luật chơi riêng của mình.
